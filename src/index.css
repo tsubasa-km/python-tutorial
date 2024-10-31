@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Kiwi+Maru&display=swap');
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,9 +7,37 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: "Kiwi Maru", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body::before{
+  content: "";
+  position: fixed;
+  z-index: -2;
+  inset: 0;
+  background-image: url(/public/forest-path2.jpg);
+}
+
+body::after{
+  content: "";
+  position: fixed;
+  z-index: -2;
+  inset: 0;
+  background-color: #fffa;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+
+p{
+  font-size: 1.5em;
+}
+
+h2{
+  font-size: 2em;
 }
