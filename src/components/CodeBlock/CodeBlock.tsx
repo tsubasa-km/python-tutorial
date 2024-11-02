@@ -1,9 +1,10 @@
-import AceEditor, { IMarker } from 'react-ace';
-import { IconContext } from 'react-icons';
-import { FaPlay } from 'react-icons/fa';
-import 'brace/mode/python';
-import 'brace/theme/monokai';
-import './CodeBlock.css';
+import AceEditor, { IMarker } from "react-ace";
+import { IconContext } from "react-icons";
+import { FaPlay } from "react-icons/fa";
+import "brace/mode/python";
+import "brace/theme/monokai";
+import "brace/ext/language_tools";
+import "./CodeBlock.css";
 
 const markers: IMarker[] = [
   {
@@ -11,16 +12,17 @@ const markers: IMarker[] = [
     startCol: 1,
     endRow: 4,
     endCol: 1,
-    className: 'python-editor',
-    type: 'text',
+    className: "python-editor",
+    type: "text",
     inFront: true,
   },
 ];
 
 interface Props {
-  title:string;
+  title: string;
   defaultValue: string;
-  loading:boolean;
+  loading?: boolean;
+  running?: boolean;
   onChange: (value: string, event?: any) => void;
   playBtnOnClick: () => void;
 }
@@ -28,21 +30,27 @@ interface Props {
 export function CodeBlock(props: Props) {
   return (
     <div className="code-block-container">
-      <IconContext.Provider value={{ color: '#0b0', size: '2em' }}>
+      <IconContext.Provider value={{ color: "#0b0", size: "2em" }}>
         <div className="header-container">
           <span className="title">{props.title}</span>
-          {props.loading?
-          <span>loading...</span>:
-          <FaPlay onClick={props.playBtnOnClick} style={{cursor:"pointer"}} />
-          }
+          {props.loading ? (
+            <span>Loading...</span>
+          ) : props.running ? (
+            <span>Runnning...</span>
+          ) : (
+            <FaPlay
+              onClick={props.playBtnOnClick}
+              style={{ cursor: "pointer" }}
+            />
+          )}
         </div>
       </IconContext.Provider>
       <AceEditor
         onChange={props.onChange}
-        mode='python'
-        theme='monokai'
-        width='100%'
-        name='ace-editor'
+        mode="python"
+        theme="monokai"
+        width="100%"
+        name="ace-editor"
         fontSize="1em"
         editorProps={{ $blockScrolling: false }}
         value={props.defaultValue}
@@ -52,13 +60,13 @@ export function CodeBlock(props: Props) {
         setOptions={{
           enableBasicAutocompletion: true,
           enableLiveAutocompletion: true,
-          enableSnippets: true,
-          showLineNumbers: true,
+          highlightActiveLine: false,
+          showPrintMargin: false,
           tabSize: 4,
         }}
         style={{
-          maxWidth: '600px',
-          height: '300px',
+          maxWidth: "600px",
+          height: "300px",
         }}
         markers={markers}
       />

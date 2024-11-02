@@ -1,19 +1,14 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import { Top } from './components/Top';
-import { PythonProvider } from 'react-py'
-
-
+import React from "react";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { Top } from "./components/Top";
 
 function App() {
   return (
-    <PythonProvider>
     <BrowserRouter>
       <Routes>
-        <Route path='/' Component={Top}></Route>
+        <Route path="/" Component={Top}></Route>
       </Routes>
     </BrowserRouter>
-    </PythonProvider>
   );
 }
 

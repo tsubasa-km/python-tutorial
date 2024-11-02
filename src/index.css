@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Kiwi+Maru&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Kiwi+Maru&display=swap");
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -12,15 +12,16 @@ body {
   font-style: normal;
 }
 
-body::before{
+body::before {
   content: "";
   position: fixed;
   z-index: -2;
   inset: 0;
   background-image: url(/public/forest-path2.jpg);
+  background-size: cover;
 }
 
-body::after{
+body::after {
   content: "";
   position: fixed;
   z-index: -2;
@@ -29,15 +30,14 @@ body::after{
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
-
-p{
+p {
   font-size: 1.5em;
 }
 
-h2{
+h2 {
   font-size: 2em;
 }
